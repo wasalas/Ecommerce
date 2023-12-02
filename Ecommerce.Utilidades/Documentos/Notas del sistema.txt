@@ -1,0 +1,49 @@
+1.- Crear la solucion
+Nueva Solucion en Blnco
+	Solucion : Ecommerce
+
+2.- crear los proyectos
+Nuevo Proyecto
+	Biblioteca de Clasaes
+		Biblioteca de Clases:Proyecto parea crear una solucion de clases para :Net o .Net Standard
+				Ecommerce.Modelo			
+				Ecommerce.Resposotrio
+				Ecommerce.Servicio
+				Ecommerce.DTO
+				Ecommerce.Utilidades
+
+Nuevo Proyecto
+	Asp.Net Core Web API
+				Ecommerce.API
+
+Nuevo Proyecto
+	Aplicacion Blazor para Web Assembly
+				Ecommerce.WebAssembly
+
+3.- Instalar dependencias en proyecto Modelo
+	Microsoft.EntityFrameworkCore.SqlServer 	V7.0.5
+	Microsoft.EntityFrameworkCore.Tools		V7.0.5
+
+4.- Ejecutar el comando en la consola de NuGet, del proyecto Modelo
+Scaffold-DbContext "Server=PC_WASB; Database=dbEcommerce; TrustServerCertificate=True; User Id=sa; Password=admin123" Microsoft.EntityFrameworkCore.SqlServer 
+
+5.- Crear la cadena de conexion en 
+	Ecommerce.API.appsettings.json
+
+	{
+	  "ConnectionStrings": {
+	    "CadenaSql": "Server=PC_WASB; Database=dbEcommerce; TrustServerCertificate=True; User Id=sa; Password=admin123"
+	},
+	"Logging": {
+		"LogLevel": {
+		"Default": "Information",
+		"Microsoft.AspNetCore": "Warning"
+ 	}
+  },
+  "AllowedHosts": "*"
+}
+
+6.- Agregar referencias del mapeado de clases
+Ecommerce.API.program.cs
+
+7.- poner como proytecto predeterminado a Ecommerce.API
