@@ -1,12 +1,14 @@
 using Ecommerce.WebAssembly;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.AspNetCore.Components.Authorization;
 
 using Blazored.LocalStorage;
 using Blazored.Toast;
 
 using Ecommerce.WebAssembly.Servicios.Contrato;
 using Ecommerce.WebAssembly.Servicios.Implementacion;
+using Ecommerce.WebAssembly.Extensiones;
 
 using CurrieTechnologies.Razor.SweetAlert2;
 
@@ -26,5 +28,7 @@ builder.Services.AddScoped<IVentaServicio,VentaServicio>();
 builder.Services.AddScoped<IDashboardServicio,DashboardServicio>();
 
 builder.Services.AddSweetAlert2();
+builder.Services.AddAuthorizationCore();
+builder.Services.AddScoped<AuthenticationStateProvider,AutenticacionExtension>();
 
 await builder.Build().RunAsync();
